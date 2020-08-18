@@ -22,12 +22,17 @@ function camera_config() {
 // add a  geometry
 function add_geometry() {
 	var geometry = new THREE.PlaneGeometry( 5, 20, 32 );
-	var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
+	// var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
+	var material = new THREE.MeshLambertMaterial({
+	    color: 0xccccff,
+   		wireframe: true
+	});
 	var plane = new THREE.Mesh( geometry, material );
 	scene.add( plane );
 	// return plane for use in animation
 	return plane;
 }
+
 
 function animate() {
 	requestAnimationFrame( animate );
@@ -38,4 +43,15 @@ function animate() {
 
 camera_config();
 var plane = add_geometry();
+
+// add axis helper
+var axesHelper = new THREE.AxesHelper( 5 );
+scene.add( axesHelper );
+
+// add lights to scene
+var light = new THREE.AmbientLight(0x444444);
+light.intensity = 1.0;
+scene.add(light);
+
+
 animate();

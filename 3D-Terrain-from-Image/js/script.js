@@ -11,16 +11,23 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // init camera
-camera.position.x = 50;
-camera.position.y = 50;
-camera.position.z = 50;
-camera.lookAt(new THREE.Vector3(0, 0, 0));
+function camera_config() {
+	camera.position.x = 50;
+	camera.position.y = 50;
+	camera.position.z = 50;
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
+}
+
 
 // add a  geometry
-var geometry = new THREE.PlaneGeometry( 5, 20, 32 );
-var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
-var plane = new THREE.Mesh( geometry, material );
-scene.add( plane );
+function add_geometry() {
+	var geometry = new THREE.PlaneGeometry( 5, 20, 32 );
+	var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
+	var plane = new THREE.Mesh( geometry, material );
+	scene.add( plane );
+	// return plane for use in animation
+	return plane;
+}
 
 function animate() {
 	requestAnimationFrame( animate );
@@ -29,4 +36,6 @@ function animate() {
 	renderer.render(scene, camera);
 }
 
+camera_config();
+var plane = add_geometry();
 animate();

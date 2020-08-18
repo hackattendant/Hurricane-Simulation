@@ -10,11 +10,19 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+
+
+// Observe a scene or a renderer
+if (typeof __THREE_DEVTOOLS__ !== 'undefined') {
+  __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent('observe', { detail: scene }));
+  __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent('observe', { detail: renderer }));
+}
+
 // init camera
 function camera_config() {
-	camera.position.x = 50;
-	camera.position.y = 50;
-	camera.position.z = 50;
+	camera.position.x = 10;
+	camera.position.y = 10;
+	camera.position.z = 10;
 	camera.lookAt(new THREE.Vector3(0, 0, 0));
 }
 
@@ -53,5 +61,12 @@ var light = new THREE.AmbientLight(0x444444);
 light.intensity = 1.0;
 scene.add(light);
 
+// add some directional light to the scene
+var directionalLight = new THREE.DirectionalLight(0xffffff);
+
+directionalLight.position.set(50, 0, 0).normalize();
+scene.add(directionalLight);
+
 
 animate();
+

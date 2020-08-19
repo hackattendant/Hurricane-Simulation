@@ -18,16 +18,16 @@
     </head>
 
     <body>
-        <script src="js/three.js"></script>
-        <script type="module" src="jsm/OrbitControls.js"></script>
+        <script type="module">
 
-        <script type="text/javascript">
+            import * as THREE from '/jsm/three.module.js';
+
+            import { OrbitControls } from '/jsm/OrbitControls.js';
 
             var camera, controls, scene, renderer;
 
             init();
 
-            //render(); // remove when using next line for animation loop (requestAnimationFrame)
             animate();
 
             function init() {
@@ -47,6 +47,9 @@
                 // TODO: remove axes helper
                 var axesHelper = new THREE.AxesHelper(5);
                 scene.add(axesHelper);
+
+                // TODO: implement controls
+                controls = new OrbitControls( camera, renderer.domElement);
 
 
 

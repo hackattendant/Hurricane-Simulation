@@ -1,0 +1,23 @@
+========== Attributes ========
+units --Required for all dimensional variables (not required for dimensionless quantities)
+standard_name --Suggested for all variables. Shouldn't have spaces and should FOLLOW the CF standard names
+axis -- Is suggested for spatial coordinates, taking values X,Y or Z
+
+========== For Latitude Coordinate ======
+units -- Accepted values are:  degrees_north, degree_north, degree_N, degrees_N, degreeN, and degreesN.
+
+========== For Longitude Coordinate ======
+units -- Accepted values are:  degrees_east, degree_east, degree_E, degrees_E, degreeE, and degreesE
+
+========== For Vertical (height or depth) Coordinate ======
+positve -- It can be 'up' or 'down'
+axis= "Z"
+
+========== For Time Coordinate ======
+-- Accepted units: day (d) , hour (hr, h), second (sec,s), year (365.24...), common_year (365), leap_year(366), Julian_year (365.25), Gregorian_year (365.2425)
+-- !!! A time coordinate is identifiable from its units string alone !!!
+$$$$ Some examples $$$$
+units = "days since 2015-11-11 0:0:0"
+
+axis = "T"
+calendar  -- It can be gregorian or standard, proleptic_gregorian, noleap or 365_day, all_leap or 366_day, 360_day, julian, none

@@ -1,0 +1,42 @@
+======== Install =========
+Install netcdf-bin to have access to the following examples.
+    sudo apt-get install netcdf-bin
+
+======== Comands ======-
+---------- ncdump Reads netCDF files --
+    ncdump -h file -- Display the header
+    ncdump -c file -- Values of coordinates (dimension variables)
+    ncdump -c -h file -- Values of coordinates showing string for texts
+    ncdump -v var1,var2... file -- Values of coordiantes (dimension variables)
+
+---------- ncgen CDFL to netCDF -------
+
+---------- ncview  --
+ncview *.* -- Views one file (variables are at the middle of the window)--
+
+========= Manual install =============
+-- First Download and install zlib
+Download from http://www.zlib.net/
+    ./configure --prefix=/usr/local
+    mk
+    sudo make install
+
+-- First Download and install HDF5
+Download from https://support.hdfgroup.org/HDF5/release/obtainsrc518.html#conf
+    tar -xvf hdf5....
+    cd hdf5...
+    ./configure --with-zlib=/usr/local --prefix=/usr/local
+    mk
+    sudo make install
+
+Download from http://www.unidata.ucar.edu/software/netcdf/release-notes-3.6.3.html
+    tar -xvf netcdf....
+    cd netcdf...
+    CPPFLAGS=-I/usr/local/include LDFLAGS=-L/usr/local/lib ./configure --enable-dynamic-loading --prefix=/usr/local FC=gfortran 
+    mk
+    sudo make install
+
+
+vi ~/.bashrc
+--- Add to your path:
+PATH=/usr/local/bin:$PATH

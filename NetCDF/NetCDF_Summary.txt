@@ -1,0 +1,47 @@
+Names can have alphanumeric characters and: -.+_@
+
+In a NetCDF file we have:
+
+attributes: Normally used to store metadata.
+            We have  "global attributes" to define the dataset and
+            "variable attributes" that gives information about the variable
+
+Dimensions: May be used to represent a real physical dimension (time, latitude, longitude or height). It has
+            a 'name' and 'length'. In netCDF4 we can have many UNLIMITED dimensions (only one for previous version)
+
+Coordinate variable: A variable with the same name as a dimension is called a 'coordinate variable'. It
+            typically defines a physical coordinate corresponding to that dimension. 
+
+variables: This is the basic unit of data. Normally these will contain the dimensions and also the data. 
+           They have 'name', 'data type' and 'shape' (list of dimensions). They can have attributes.
+           Types:
+           (original) byte, character, short, int, float and double
+           (netCDF4) unsigned short, unsigned int, 64-bit int, unsigned 64-bit int, string or user defined.
+
+data:
+
+    Is the data of the netCDF, in this case is the same as variables but the data is filled after
+    the variables are defined. 
+
+======== CF Compliant ============
+--- Atributes --------
+Data provenance:     title, institution, source, history, references, comment, Conventions
+Description of data: units, standard_name, long_name, ancillary_variables, missing_value, valid_range, valid_min, valid_max, flag_values, flag_meanings, flag_masks, _FillValue, standard_error_multiplier
+Coordinate systems:  coordinates, axis, bounds, grid_mapping, formula_terms, calendar, leap_month, leap_year, month_lengths, positive
+Data packing:        add_offset, scale_factor, compress,
+Data cell properties and methods: cell_measures, cell_methods, climatology,
+Discrete sampling geometries (new): cf_role, featureType, instance_dimension, sample_dimension
+
+======== NcWMS vector layers ============
+The layer should have a 'standar_name' attribute with the form eastward_* eastward_*
+
+
+========= Coordinate variables ====
+-- Definition --
+    int     lat(lat), lon(lon);
+
+-- Data --- 
+    data: 
+            lat = 10, 20, 30  //It has 3 values that correspond to the lat of those 3 positions
+            lon = 14, 24, 34  //It has 3 values that correspond to the long of those 3 positions
+

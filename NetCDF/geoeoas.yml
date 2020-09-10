@@ -1,0 +1,22 @@
+name: geoeoas
+channels:
+    - conda-forge
+    - nodefaults
+    - anaconda
+dependencies:
+    - python=*.*
+    - pandas=*.*
+    - numpy=*.*
+    - matplotlib=*.*
+    - netcdf4=*
+    - cartopy=*
+    - xarray=*
+    - psycopg2=*
+    - pyferret=*
+    - dash=*
+    - geopandas=*
+    - colorcet=*.*
+    - datashader=*.*
+    - pyamg=*.*
+    - seaborn=*.*
+    - gdal=*.*

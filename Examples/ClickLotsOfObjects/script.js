@@ -1,4 +1,18 @@
-// import Stats from 'https://threejs.org/examples/jsm/libs/stats.module.js';
+// var stats = new Stats()
+// add in stats FPS
+(function(){
+  var script=document.createElement('script');
+  script.onload=function(){
+      var stats=new Stats();
+      document.body.appendChild(stats.dom);
+      requestAnimationFrame(function loop(){
+          stats.update();
+          requestAnimationFrame(loop)
+      });
+  };
+  script.src='/jsm/stats.min.js';
+  document.head.appendChild(script);
+})()
 
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );

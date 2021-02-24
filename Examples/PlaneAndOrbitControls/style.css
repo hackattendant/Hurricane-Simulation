@@ -1,0 +1,9 @@
+/*This is to get rid of the white borders that can be scene around the scene in the browser*/
+body {
+    background-color: black;
+    color: #000;
+}
+
+a {
+    color: #f00;
+}

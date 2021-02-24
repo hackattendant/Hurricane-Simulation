@@ -1,13 +1,18 @@
 <html>
   <head> 
-    <title>Locomotion over terrain</title>
+    <title>TerrainFromTiff Example</title>
     <link rel="stylesheet" href="style.css">
   <head> 
+
   <body> 
-    <div id="assets"><img id="terrain-image" src="Batimetria.png"></div>
+    <div id="assets">
+      <img id="terrain-image" src="Batimetria.png">
+    </div>
     <canvas id="canvas"></canvas>
-    <script src="/jsm/three.min.js"></script> 
-    <script src="/jsm/OrbitControls.js"></script>
-    <script src="script.js"></script> 
+      <!-- code -->
+      <script src="https://cdn.rawgit.com/seikichi/tiff.js/master/tiff.min.js"></script>
+      <script src="/jsm/three.min.js"></script> 
+      <script src="/jsm/OrbitControls.js"></script>
+      <script src="script.js"></script> 
   </body>
 </html>

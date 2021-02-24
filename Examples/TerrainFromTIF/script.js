@@ -1,3 +1,18 @@
+// add in stats FPS
+(function(){
+  var script=document.createElement('script');
+  script.onload=function(){
+      var stats=new Stats();
+      document.body.appendChild(stats.dom);
+      requestAnimationFrame(function loop(){
+          stats.update();
+          requestAnimationFrame(loop)
+      });
+  };
+  script.src='/jsm/stats.min.js';
+  document.head.appendChild(script);
+})()
+
 // make image global so we can access its dimensions
 var img;
 

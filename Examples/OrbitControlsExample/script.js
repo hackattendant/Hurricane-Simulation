@@ -1,6 +1,21 @@
 import * as THREE from '/jsm/three.module.js';
 import { OrbitControls } from '/jsm/OrbitControls.js';
 
+
+(function(){
+    var script=document.createElement('script');
+    script.onload=function(){
+        var stats=new Stats();
+        document.body.appendChild(stats.dom);
+        requestAnimationFrame(function loop(){
+            stats.update();
+            requestAnimationFrame(loop)
+        });
+    };
+    script.src='/jsm/stats.min.js';
+    document.head.appendChild(script);
+})()
+
 var camera, controls, scene, renderer;
 
 init();

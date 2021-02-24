@@ -10,12 +10,22 @@ var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 var cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
+reverse_multiplier = 1;
+
 function animate() {
   requestAnimationFrame( animate );
   cube.rotation.x -= 0.02;
   cube.rotation.y += 0.01;
-  camera.position.z +=0.05;
-  camera.position.y +=0.03;
+  console.log(camera.position.y)
+
+  // bring camera away and close repeat
+  if (camera.position.y > 11) {
+    reverse_multiplier = -1;
+  }
+  else if (camera.position.y < 3) {
+    reverse_multiplier = 1;
+  }
+  camera.position.y +=0.03 * reverse_multiplier;
   camera.lookAt(0,0,0);
   renderer.render( scene, camera );
 }

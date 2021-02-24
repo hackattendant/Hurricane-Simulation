@@ -1,7 +1,7 @@
 import * as THREE from '/jsm/three.module.js';
 import { OrbitControls } from '/jsm/OrbitControls.js';
 
-
+// add in stats FPS
 (function(){
     var script=document.createElement('script');
     script.onload=function(){
